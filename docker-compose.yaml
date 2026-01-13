@@ -7,4 +7,22 @@ services:
       - "8080:8080"
     env_file:
       - .env
+    volumes:
+      - metrics_data:${PROMETHEUS_MULTIPROC_DIR}  # mount point from .env
     restart: unless-stopped
+
+  metrics:
+    build: .
+    container_name: metrics
+    ports:
+      - "9090:9090"  # Prometheus scrape port
+    env_file:
+      - .env
+    volumes:
+      - metrics_data:${PROMETHEUS_MULTIPROC_DIR}  # same shared volume
+    command: >
+      sh -c "uvicorn app.metrics_server:metrics_app --host 0.0.0.0 --port 9090"
+    restart: unless-stopped
+
+volumes:
+  metrics_data:
