@@ -1,12 +1,14 @@
-# Hello
+# Hello-metrics
 
-A simple FastAPI project that provides a greeting endpoint.
+A simple FastAPI project that provides a greeting endpoint with Prometheus
+metrics support.
 
 ---
 
 ## Features
 - local development with docker / docker-compose
 - github action
+- Automatic HTTP request metrics (latency, status codes, sizes)
 
 ---
 
@@ -21,8 +23,8 @@ A simple FastAPI project that provides a greeting endpoint.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/soft-titus/hello.git
-cd hello
+git clone https://github.com/soft-titus/hello-metrics.git
+cd hello-metrics
 ```
 
 2. Install dependencies:
