@@ -4,6 +4,7 @@ Hello router.
 
 from fastapi import APIRouter
 from app.helpers.logger import logger
+from app.metrics import hello_requests_total
 
 router = APIRouter(
     tags=["Hello"],  # Groups this endpoint under "Hello" in Swagger/OpenAPI UI
@@ -20,6 +21,8 @@ router = APIRouter(
 def hello():
     """Hello endpoint."""
     logger.info("Hello endpoint hit")
+
+    hello_requests_total.inc()
 
     return {
         "message": "Hello",
