@@ -13,3 +13,9 @@
 - feat: expose the metrics as sidecar container
 - docs: cleanup CHANGELOG.md from template
 
+
+
+## 1.1.1 - 2026-01-19
+- Merge pull request #3 from soft-titus/dev
+- fix: expose port 9090 on Dockerfile for clarity
+
